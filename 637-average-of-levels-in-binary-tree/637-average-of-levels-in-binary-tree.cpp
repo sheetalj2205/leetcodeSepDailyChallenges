@@ -11,18 +11,18 @@
  */
 class Solution {
 public:
+    //same as level order traversal question
     vector<double> averageOfLevels(TreeNode* root) {
         vector<double> ans;
-        vector<vector<int>> levelOrder;
-        queue<TreeNode*> q;
+        queue<TreeNode*> q; //take queue
         q.push(root);
-        while(!q.empty()){
+        while(!q.empty()){ //run the loop till q is not empty
             int n = q.size();
             double avg = 0;
-            for(int i = 0; i<n; i++){
-                TreeNode* nod = q.front();
-                q.pop();
-                avg += nod->val;
+            for(int i = 0; i<n; i++){ //run the loop for the curr size of the queue
+                TreeNode* nod = q.front(); //take front node
+                q.pop(); 
+                avg += nod->val; //add its value to the sum
                 if(nod->left){
                 q.push(nod->left);
                 }
@@ -30,7 +30,7 @@ public:
                 q.push(nod->right);
                 }
             }
-            ans.push_back(double(avg/n));
+            ans.push_back(double(avg/n)); //add the avg value in the array
             
         }
         return ans;
