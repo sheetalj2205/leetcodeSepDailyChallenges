@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //same as longest common substring
     int lcsSubarray(vector<int>& nums1, int n, vector<int>& nums2, int m){
         int dp[n+1][m+1];
         int result = 0;
